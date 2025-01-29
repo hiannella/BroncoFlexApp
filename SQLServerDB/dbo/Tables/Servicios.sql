@@ -1,0 +1,5 @@
+﻿CREATE TABLE [dbo].[Servicios]
+(
+	[Id] INT NOT NULL PRIMARY KEY IDENTITY, 
+    [Servicio] NVARCHAR(50) NOT NULL
+)

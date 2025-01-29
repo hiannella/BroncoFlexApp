@@ -1,0 +1,5 @@
+﻿CREATE TABLE [dbo].[Cargos]
+(
+	[Id] INT NOT NULL PRIMARY KEY IDENTITY, 
+    [Cargo] NVARCHAR(50) NULL
+)

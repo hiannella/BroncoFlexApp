@@ -1,0 +1,5 @@
+﻿CREATE TABLE [dbo].[Entornos]
+(
+	[Id] INT NOT NULL PRIMARY KEY IDENTITY, 
+    [Entorno] NVARCHAR(50) NOT NULL
+)

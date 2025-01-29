@@ -1,0 +1,5 @@
+﻿CREATE TABLE [dbo].[Indicaciones]
+(
+	[Id] INT NOT NULL PRIMARY KEY IDENTITY,
+	[Indicacion] NVARCHAR(100) NOT NULL
+)

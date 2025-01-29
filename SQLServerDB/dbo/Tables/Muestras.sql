@@ -1,0 +1,5 @@
+﻿CREATE TABLE [dbo].[Muestras]
+(
+	[Id] INT NOT NULL PRIMARY KEY IDENTITY,
+	[Muestra] NVARCHAR(100) NOT NULL
+)

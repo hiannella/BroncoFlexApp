@@ -1,0 +1,14 @@
+﻿CREATE TABLE [dbo].[Imagenes]
+(
+	[Id] INT NOT NULL PRIMARY KEY IDENTITY, 
+	[Fecha] DATE NULL, 
+	[Descripcion] NVARCHAR(250) NULL,
+	[DVD] BIT NOT NULL,
+	[USB] BIT NOT NULL,
+	[Impresion] BIT NOT NULL,
+	[URL] NVARCHAR(100) NULL,
+	[Usuario] NVARCHAR(50) NULL,
+	[Password] NVARCHAR(100) NULL,
+	[IdFicha] INT NOT NULL
+	CONSTRAINT [FK_Fichas_Imagenes] FOREIGN KEY ([IdFicha]) REFERENCES [Fichas]([Id])
+)
