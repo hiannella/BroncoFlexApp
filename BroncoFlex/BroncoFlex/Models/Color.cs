@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿namespace BroncoFlex.Models;
 
-namespace BroncoFlex.Models;
-
-public partial class Colore
+public partial class Color
 {
     public int Id { get; set; }
 
-    public string Color { get; set; } = null!;
+    public string Codigo { get; set; } = null!;
 
     public string Descripcion { get; set; } = null!;
 

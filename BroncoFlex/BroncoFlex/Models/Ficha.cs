@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace BroncoFlex.Models;
+﻿namespace BroncoFlex.Models;
 
 public partial class Ficha
 {
@@ -37,7 +34,7 @@ public partial class Ficha
 
     public virtual Servicio? IdServicioNavigation { get; set; }
 
-    public virtual ICollection<Imagene> Imagenes { get; set; } = new List<Imagene>();
+    public virtual ICollection<Imagen> Imagenes { get; set; } = new List<Imagen>();
 
     public virtual ICollection<Laboratorio> Laboratorios { get; set; } = new List<Laboratorio>();
 
@@ -45,9 +42,9 @@ public partial class Ficha
 
     public virtual ICollection<Turno> Turnos { get; set; } = new List<Turno>();
 
-    public virtual ICollection<Indicacione> IdIndicacions { get; set; } = new List<Indicacione>();
+    public virtual ICollection<Indicacion> IdIndicacions { get; set; } = new List<Indicacion>();
 
     public virtual ICollection<Pendiente> IdPendientes { get; set; } = new List<Pendiente>();
 
-    public virtual ICollection<Precaucione> IdPrecaucions { get; set; } = new List<Precaucione>();
+    public virtual ICollection<Precaucion> IdPrecaucions { get; set; } = new List<Precaucion>();
 }

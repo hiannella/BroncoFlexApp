@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace BroncoFlex.Models;
 
-public partial class Imagene
+public partial class Imagen
 {
     public int Id { get; set; }
 

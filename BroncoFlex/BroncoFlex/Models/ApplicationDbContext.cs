@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 
 namespace BroncoFlex.Models;
 
@@ -23,17 +21,17 @@ public partial class ApplicationDbContext : DbContext
 
     public virtual DbSet<Cobertura> Coberturas { get; set; }
 
-    public virtual DbSet<Colore> Colores { get; set; }
+    public virtual DbSet<Color> Colores { get; set; }
 
-    public virtual DbSet<Determinacione> Determinaciones { get; set; }
+    public virtual DbSet<Determinacion> Determinaciones { get; set; }
 
     public virtual DbSet<Entorno> Entornos { get; set; }
 
     public virtual DbSet<Ficha> Fichas { get; set; }
 
-    public virtual DbSet<Imagene> Imagenes { get; set; }
+    public virtual DbSet<Imagen> Imagenes { get; set; }
 
-    public virtual DbSet<Indicacione> Indicaciones { get; set; }
+    public virtual DbSet<Indicacion> Indicaciones { get; set; }
 
     public virtual DbSet<Laboratorio> Laboratorios { get; set; }
 
@@ -45,11 +43,11 @@ public partial class ApplicationDbContext : DbContext
 
     public virtual DbSet<Personal> Personals { get; set; }
 
-    public virtual DbSet<Precaucione> Precauciones { get; set; }
+    public virtual DbSet<Precaucion> Precauciones { get; set; }
 
     public virtual DbSet<Procedimiento> Procedimientos { get; set; }
 
-    public virtual DbSet<RelProcedimientosPedido> RelProcedimientosPedidos { get; set; }
+    public virtual DbSet<ProcedimientosPedidos> RelProcedimientosPedidos { get; set; }
 
     public virtual DbSet<Servicio> Servicios { get; set; }
 
@@ -105,23 +103,23 @@ public partial class ApplicationDbContext : DbContext
             entity.Property(e => e.Sigla).HasMaxLength(50);
         });
 
-        modelBuilder.Entity<Colore>(entity =>
+        modelBuilder.Entity<Color>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("PK__Colores__3214EC078096DA0B");
 
-            entity.Property(e => e.Color)
+            entity.Property(e => e.Descripcion)
                 .HasMaxLength(7)
                 .IsFixedLength();
             entity.Property(e => e.Descripcion).HasMaxLength(50);
         });
 
-        modelBuilder.Entity<Determinacione>(entity =>
+        modelBuilder.Entity<Determinacion>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("PK__Determin__3214EC0748002F93");
 
             entity.Property(e => e.CentroReceptor).HasMaxLength(50);
             entity.Property(e => e.Comentarios).HasMaxLength(250);
-            entity.Property(e => e.Determinacion).HasMaxLength(100);
+            entity.Property(e => e.Descripcion).HasMaxLength(100);
             entity.Property(e => e.Piso).HasMaxLength(2);
             entity.Property(e => e.Sector).HasMaxLength(50);
         });
@@ -167,7 +165,7 @@ public partial class ApplicationDbContext : DbContext
             entity.HasMany(d => d.IdIndicacions).WithMany(p => p.IdFichas)
                 .UsingEntity<Dictionary<string, object>>(
                     "RelFichasIndicacione",
-                    r => r.HasOne<Indicacione>().WithMany()
+                    r => r.HasOne<Indicacion>().WithMany()
                         .HasForeignKey("IdIndicacion")
                         .OnDelete(DeleteBehavior.ClientSetNull)
                         .HasConstraintName("FK_relFichas_Indicaciones_Indicaciones"),
@@ -201,7 +199,7 @@ public partial class ApplicationDbContext : DbContext
             entity.HasMany(d => d.IdPrecaucions).WithMany(p => p.IdFichas)
                 .UsingEntity<Dictionary<string, object>>(
                     "RelFichasPrecaucione",
-                    r => r.HasOne<Precaucione>().WithMany()
+                    r => r.HasOne<Precaucion>().WithMany()
                         .HasForeignKey("IdPrecaucion")
                         .OnDelete(DeleteBehavior.ClientSetNull)
                         .HasConstraintName("FK_relFichas_Precauciones_Precauciones"),
@@ -216,7 +214,7 @@ public partial class ApplicationDbContext : DbContext
                     });
         });
 
-        modelBuilder.Entity<Imagene>(entity =>
+        modelBuilder.Entity<Imagen>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("PK__Imagenes__3214EC07679E9BE3");
 
@@ -235,11 +233,11 @@ public partial class ApplicationDbContext : DbContext
                 .HasConstraintName("FK_Fichas_Imagenes");
         });
 
-        modelBuilder.Entity<Indicacione>(entity =>
+        modelBuilder.Entity<Indicacion>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("PK__Indicaci__3214EC07DE4F4C10");
 
-            entity.Property(e => e.Indicacion).HasMaxLength(100);
+            entity.Property(e => e.Descripcion).HasMaxLength(100);
         });
 
         modelBuilder.Entity<Laboratorio>(entity =>
@@ -331,11 +329,11 @@ public partial class ApplicationDbContext : DbContext
                 .HasConstraintName("FK_Personal_Cargo");
         });
 
-        modelBuilder.Entity<Precaucione>(entity =>
+        modelBuilder.Entity<Precaucion>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("PK__Precauci__3214EC07CAF73989");
 
-            entity.Property(e => e.Precaucion).HasMaxLength(100);
+            entity.Property(e => e.Descripcion).HasMaxLength(100);
         });
 
         modelBuilder.Entity<Procedimiento>(entity =>
@@ -394,7 +392,7 @@ public partial class ApplicationDbContext : DbContext
                 .HasConstraintName("FK_Procedimientos_Personal_5");
         });
 
-        modelBuilder.Entity<RelProcedimientosPedido>(entity =>
+        modelBuilder.Entity<ProcedimientosPedidos>(entity =>
         {
             entity.HasKey(e => new { e.IdProcedimiento, e.IdMuestra, e.IdDeterminacion });
 

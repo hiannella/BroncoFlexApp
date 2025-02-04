@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace BroncoFlex.Models;
 
-public partial class RelProcedimientosPedido
+public partial class ProcedimientosPedidos
 {
     public int IdProcedimiento { get; set; }
 
@@ -11,7 +11,7 @@ public partial class RelProcedimientosPedido
 
     public int IdDeterminacion { get; set; }
 
-    public virtual Determinacione IdDeterminacionNavigation { get; set; } = null!;
+    public virtual Determinacion IdDeterminacionNavigation { get; set; } = null!;
 
     public virtual Muestra IdMuestraNavigation { get; set; } = null!;
 

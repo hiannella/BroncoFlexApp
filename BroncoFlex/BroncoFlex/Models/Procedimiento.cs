@@ -57,5 +57,5 @@ public partial class Procedimiento
 
     public virtual Personal? IdPatologoNavigation { get; set; }
 
-    public virtual ICollection<RelProcedimientosPedido> RelProcedimientosPedidos { get; set; } = new List<RelProcedimientosPedido>();
+    public virtual ICollection<ProcedimientosPedidos> RelProcedimientosPedidos { get; set; } = new List<ProcedimientosPedidos>();
 }

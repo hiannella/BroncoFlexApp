@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace BroncoFlex.Models;
+﻿namespace BroncoFlex.Models;
 
 public partial class Turno
 {
@@ -25,7 +22,7 @@ public partial class Turno
 
     public int IdFicha { get; set; }
 
-    public virtual Colore IdColorNavigation { get; set; } = null!;
+    public virtual Color IdColorNavigation { get; set; } = null!;
 
     public virtual Ficha IdFichaNavigation { get; set; } = null!;
 }

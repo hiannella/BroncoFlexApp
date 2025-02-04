@@ -9,5 +9,5 @@ public partial class Muestra
 
     public string Muestra1 { get; set; } = null!;
 
-    public virtual ICollection<RelProcedimientosPedido> RelProcedimientosPedidos { get; set; } = new List<RelProcedimientosPedido>();
+    public virtual ICollection<ProcedimientosPedidos> RelProcedimientosPedidos { get; set; } = new List<ProcedimientosPedidos>();
 }
