@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using WebAPI.Server.Persistance.Models;
 
-namespace WebAPI.Server.Data;
+namespace WebAPI.Server.Persistance;
 
 public partial class ApplicationDbContext : DbContext
 {
