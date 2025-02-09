@@ -1,0 +1,124 @@
+﻿@page "/scheduler-features"
+
+@using System.Drawing
+@using BlazorUI.Client.Data
+@using Syncfusion.Blazor
+@using Syncfusion.Blazor.Data
+@using Syncfusion.Blazor.Schedule
+@using Syncfusion.Blazor.Schedule.Internal
+
+<div id = "ControlRegion">
+    <SfSchedule TValue="ScheduleData.AppointmentData" AllowDragAndDrop="true" FirstDayOfWeek="(int)DayOfWeek.Monday" ShowQuickInfo="true" EnableAutoRowHeight="true" Height="650px" @bind-SelectedDate="@CurrentDate">
+        <ScheduleResources>
+            <ScheduleResource TItem="ScheduleData.ResourceData" TValue="int" DataSource="@ProjectData" Field="CategoryId" Title="Categoria" Name="Projects" TextField="Text" IdField="Id" ColorField="Color"></ScheduleResource>
+        </ScheduleResources>
+        <ScheduleEventSettings DataSource="@EventData">
+            <SfDataManager AdaptorInstance="@typeof(CustomAdaptor)" Adaptor="Adaptors.CustomAdaptor"></SfDataManager>
+        </ScheduleEventSettings>
+        <ScheduleViews>
+            <ScheduleView Option="View.Week"></ScheduleView>
+            <ScheduleView Option="View.Month"></ScheduleView>
+            <ScheduleView Option="View.Agenda"></ScheduleView>
+        </ScheduleViews>
+    </SfSchedule>
+</div>
+
+<style>
+    .ulstyle {
+        margin: 0px;
+        padding-left: 20px;
+        display: inline-block;
+    }
+    .list {
+    float: left;
+    line-height: 20px;
+    margin: 10px;
+    min-width:370px;
+    }
+</style>
+ 
+@code{
+    DateTime CurrentDate = new DateTime(2020, 2, 12);
+    List<ScheduleData.AppointmentData> EventData = new ScheduleData().GetScheduleData();
+
+    List<ScheduleData.ResourceData> ProjectData { get; set; } = new List<ScheduleData.ResourceData> {
+            new ScheduleData.ResourceData { Text = "Anestesia Local", Id = 1, Color = HexConverter(Color.DeepSkyBlue) },
+            new ScheduleData.ResourceData { Text = "Anestesia Gral.", Id = 2, Color = HexConverter(Color.Red) },
+            new ScheduleData.ResourceData { Text = "UCO/UTI/Guardia", Id = 3, Color = HexConverter(Color.DarkOrchid) },
+            new ScheduleData.ResourceData { Text = "EBUS", Id = 4, Color = HexConverter(Color.Orange) },
+            new ScheduleData.ResourceData { Text = "A Confirmar", Id = 5, Color = HexConverter(Color.Gold) },
+            new ScheduleData.ResourceData { Text = "Cancelado", Id = 6, Color = HexConverter(Color.Gray) },
+            new ScheduleData.ResourceData { Text = "Adninistrativo", Id = 7, Color = HexConverter(Color.MediumSeaGreen) }
+    };
+
+    public class CustomAdaptor : DataAdaptor
+    {
+        DateTime CurrentDate = new DateTime(2020, 2, 12);
+        List<ScheduleData.AppointmentData> EventData = new ScheduleData().GetScheduleData();
+
+        public async override Task<object> ReadAsync(DataManagerRequest dataManagerRequest, string key = null)
+        {
+            await Task.Delay(100); //To mimic asynchronous operation, we delayed this operation using Task.Delay
+            return dataManagerRequest.RequiresCounts ? new DataResult() { Result = EventData, Count = EventData.Count() } : (object)EventData;
+        }
+
+        public async override Task<object> InsertAsync(DataManager dataManager, object data, string key)
+        {
+            await Task.Delay(100); //To mimic asynchronous operation, we delayed this operation using Task.Delay
+            EventData.Insert(0, data as ScheduleData.AppointmentData);
+            return data;
+        }
+
+        public async override Task<object> UpdateAsync(DataManager dataManager, object data, string keyField, string key)
+        {
+            await Task.Delay(100); //To mimic asynchronous operation, we delayed this operation using Task.Delay
+            var val = (data as ScheduleData.AppointmentData);
+            var appointment = EventData.Where((AppointmentData) => AppointmentData.Id == val.Id).FirstOrDefault();
+            if (appointment != null)
+            {
+                appointment.Id = val.Id;
+                appointment.Subject = val.Subject;
+                appointment.StartTime = val.StartTime;
+                appointment.EndTime = val.EndTime;
+                appointment.Location = val.Location;
+                appointment.Description = val.Description;
+                appointment.IsAllDay = val.IsAllDay;
+                appointment.CategoryId = val.CategoryId;
+                appointment.RecurrenceException = val.RecurrenceException;
+                appointment.RecurrenceID = val.RecurrenceID;
+                appointment.RecurrenceRule = val.RecurrenceRule;
+            }
+            return data;
+        }
+
+        public async override Task<object> RemoveAsync(DataManager dataManager, object data, string keyField, string key) //triggers on appointment deletion through public method DeleteEvent
+        {
+            await Task.Delay(100); //To mimic asynchronous operation, we delayed this operation using Task.Delay
+            int value = (int)data;
+            EventData.Remove(EventData.Where((AppointmentData) => AppointmentData.Id == value).FirstOrDefault());
+            return data;
+        }
+    }
+
+    private RenderFragment<ScheduleData.AppointmentData> AppointmentTemplate = context => builder =>
+    {
+        builder.OpenElement(0, "div");
+        builder.AddContent(1, context.Subject);
+        builder.CloseElement();
+    };
+
+    private static String HexConverter(System.Drawing.Color c)
+    {
+        String rtn = String.Empty;
+        try
+        {
+            rtn = "#" + c.R.ToString("X2") + c.G.ToString("X2") + c.B.ToString("X2");
+        }
+        catch (Exception ex)
+        {
+            //doing nothing
+        }
+
+        return rtn;
+    }
+}

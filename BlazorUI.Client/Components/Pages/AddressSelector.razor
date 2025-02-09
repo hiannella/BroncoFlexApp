@@ -1,0 +1,41 @@
+﻿<!-- AddressSelector.razor -->
+@using Microsoft.JSInterop
+@using Syncfusion.Blazor.Inputs
+
+@inject IJSRuntime JSRuntime
+
+<SfTextBox Id="myTextBox" @ref="textBox" Width="350px" FloatLabelType='@FloatLabelType.Auto'></SfTextBox>
+
+@code {
+    // Add necessary code here
+    private SfTextBox textBox;
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await JSRuntime.InvokeVoidAsync("initializeGooglePlacesAutocomplete", textBox.ID);
+        }
+    }
+}
+
+<script>
+    function initializeGooglePlacesAutocomplete(inputId) {
+        var input = document.getElementById(inputId);
+        var options = {
+            types: ['address'],                         // Restrict predictions to addresses only
+            componentRestrictions: { country: 'ar' },   // Restrict to Argentina
+            language: 'es'                              // Set the language to Spanish
+        };
+        var autocomplete = new google.maps.places.Autocomplete(input, options);
+
+        //autocomplete.setFields(['address_components', 'formatted_address']);
+
+        // Optionally, you can add event listeners to handle place selection or other actions
+        autocomplete.addListener('place_changed', function () {
+            var place = autocomplete.getPlace();
+            console.log(place)
+            // Handle the selected place data as needed
+        });
+    }
+</script>

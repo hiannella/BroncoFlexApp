@@ -5,11 +5,7 @@ VisualStudioVersion = 17.9.34616.47
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "BroncoFlex.SQLServerDB", "SQLServerDB\BroncoFlex.SQLServerDB.sqlproj", "{452E1C33-E781-4420-890C-7D05910F10AB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAPI.Server", "WebAPI\WebAPI.Server.csproj", "{88A15982-5F4E-4788-B1C1-030CB17264A9}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BroncoFlex.Shared", "BroncoFlex.Shared\BroncoFlex.Shared.csproj", "{354EB868-561D-48B0-953C-F63CA55DB340}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorWASM.Client", "BlazorWASM.Client\BlazorWASM.Client.csproj", "{C8D422A5-6221-434E-8AE1-99F40F0C14DE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorUI.Client", "BlazorUI.Client\BlazorUI.Client.csproj", "{F48B2DEC-05E1-488F-9EBA-9F98EC1B1606}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,18 +19,10 @@ Global
 		{452E1C33-E781-4420-890C-7D05910F10AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{452E1C33-E781-4420-890C-7D05910F10AB}.Release|Any CPU.Build.0 = Release|Any CPU
 		{452E1C33-E781-4420-890C-7D05910F10AB}.Release|Any CPU.Deploy.0 = Release|Any CPU
-		{88A15982-5F4E-4788-B1C1-030CB17264A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{88A15982-5F4E-4788-B1C1-030CB17264A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{88A15982-5F4E-4788-B1C1-030CB17264A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{88A15982-5F4E-4788-B1C1-030CB17264A9}.Release|Any CPU.Build.0 = Release|Any CPU
-		{354EB868-561D-48B0-953C-F63CA55DB340}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{354EB868-561D-48B0-953C-F63CA55DB340}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{354EB868-561D-48B0-953C-F63CA55DB340}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{354EB868-561D-48B0-953C-F63CA55DB340}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C8D422A5-6221-434E-8AE1-99F40F0C14DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C8D422A5-6221-434E-8AE1-99F40F0C14DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C8D422A5-6221-434E-8AE1-99F40F0C14DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C8D422A5-6221-434E-8AE1-99F40F0C14DE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F48B2DEC-05E1-488F-9EBA-9F98EC1B1606}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F48B2DEC-05E1-488F-9EBA-9F98EC1B1606}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F48B2DEC-05E1-488F-9EBA-9F98EC1B1606}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F48B2DEC-05E1-488F-9EBA-9F98EC1B1606}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

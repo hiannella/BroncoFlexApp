@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <base href="/" />
+    <link rel="stylesheet" href="@Assets["bootstrap/bootstrap.min.css"]" />
+    <link rel="stylesheet" href="@Assets["app.css"]" />
+    <link rel="stylesheet" href="@Assets["BlazorUI.Client.styles.css"]" />
+	<link href="syncfusion-blazor-icons.css" rel="stylesheet" />
+    <ImportMap />
+    <link rel="icon" type="image/png" href="favicon.png" />
+	
+    <HeadOutlet @rendermode="InteractiveServer" />
+    <link rel="stylesheet" href="_content/Syncfusion.Blazor.Themes/fluent.css" />
+    <script src="_content/Syncfusion.Blazor.Core/scripts/syncfusion-blazor.min.js" type="text/javascript"></script>
+
+    <!-- Report Viewer component style -->
+    <link href="https://cdn.boldreports.com/7.1.9/content/v2.0/tailwind-light/bold.report-viewer.min.css" rel="stylesheet" />
+    <!-- Report Viewer component dependent scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.boldreports.com/7.1.9/scripts/v2.0/common/bold.reports.common.min.js"></script>
+    <script src="https://cdn.boldreports.com/7.1.9/scripts/v2.0/common/bold.reports.widgets.min.js"></script>
+    <!-- Report Viewer component script -->
+    <script src="https://cdn.boldreports.com/7.1.9/scripts/v2.0/bold.report-viewer.min.js"></script>
+    <!-- Blazor interop file -->
+    <script src="~/scripts/boldreports-interop.js"></script>
+</head>
+
+<body>
+    <Routes @rendermode="InteractiveServer" />
+	 <script>
+        function isSidebar(x, y) {
+            var sidebarEle = document.elementFromPoint(x, y);
+            return (sidebarEle && sidebarEle.closest('.sidebar') != null) ? true : false;
+        }
+    </script>
+    <script src="_framework/blazor.web.js"></script>
+    <!-- Scripts correspondientes a la API de Google Places -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhCEbyrBjSI5gdaWML12X79jWlYxZzIH0&libraries=places&language=es&loading=async"></script>
+
+</body>
+
+</html>
