@@ -2,6 +2,7 @@
 
 public class BoldReportViewerOptions
 {
-    public string ReportName { get; set; }
+    public string ReportPath { get; set; }
     public string ServiceURL { get; set; }
+    //public string Locale { get; set; }
 }

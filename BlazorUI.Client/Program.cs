@@ -12,7 +12,7 @@ builder.Services.AddMemoryCache();
 builder.Services.AddSyncfusionBlazor();
 //Configure Syncfusion localization options
 builder.Services.AddSingleton(typeof(ISyncfusionStringLocalizer), typeof(SyncfusionLocalizer));
-var supportedCultures = new[] { "en-US", "de", "fr", "ar", "zh" };
+var supportedCultures = new[] { "es", "en-US", "de", "fr", "ar" };
 var localizationOptions = new RequestLocalizationOptions()
     .SetDefaultCulture(supportedCultures[0])
     .AddSupportedCultures(supportedCultures)
@@ -41,7 +41,8 @@ if (!app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.UseAntiforgery();
-app.MapStaticAssets();
+//app.MapStaticAssets();
+app.UseStaticFiles();
 app.MapRazorComponents<App>()
     .AddInteractiveServerRenderMode();
 app.MapControllers();

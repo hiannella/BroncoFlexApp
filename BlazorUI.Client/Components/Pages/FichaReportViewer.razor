@@ -1,4 +1,4 @@
-﻿@page "/ficha_report"
+﻿@page "/ficha-report"
 
 @using BlazorUI.Client.Extensions
 @using Microsoft.AspNetCore.Components
@@ -16,8 +16,9 @@
     {
         if (firstRender)
         {
-            viewerOptions.ReportName = "~/Reports/Ficha.rdl";
+            viewerOptions.ReportPath = "~/reports/Ficha.rdl";
             viewerOptions.ServiceURL = "/api/BoldReports";
+            // viewerOptions.Locale = "es-AR";
             await JSRuntime.InvokeVoidAsync("BoldReports.RenderViewer", "report-viewer", viewerOptions);
         }
     }

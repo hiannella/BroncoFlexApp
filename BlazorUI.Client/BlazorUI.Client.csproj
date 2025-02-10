@@ -7,6 +7,7 @@
   </PropertyGroup>
 <ItemGroup>
 	<PackageReference Include="BoldReports.Net.Core" Version="7.1.9" />
+	<PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="9.0.1" />
 	<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="9.0.1" />
 	<PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="9.0.1">
 	  <PrivateAssets>all</PrivateAssets>
@@ -46,6 +47,18 @@
 
   <ItemGroup>
     <Folder Include="Services\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\reports\Ficha.rdl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="wwwroot\scripts\boldreports-interop.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
 </Project>

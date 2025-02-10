@@ -29,23 +29,22 @@
         await base.OnInitializedAsync();
         switch (System.Globalization.CultureInfo.CurrentCulture.Name)
         {
-            case "en-US":
+            case "es":
                 this.cultureIndex = 0;
                 break;
-            case "de":
+            case "en-US":
                 this.cultureIndex = 1;
                 break;
-            case "fr":
+            case "de":
                 this.cultureIndex = 2;
                 break;
-            case "ar":
+            case "fr":
                 this.cultureIndex = 3;
                 break;
-            case "zh":
+            case "ar":
                 this.cultureIndex = 4;
                 break;
         }
-        
     }
 
     private void OnSelected(Syncfusion.Blazor.DropDowns.ChangeEventArgs<string,Cultures> e)
@@ -57,19 +56,19 @@
             $"redirectUri={Uri.EscapeDataString(uri)}";
        switch (culture)
        {
-        case "en-US":
+        case "es":
          this.cultureIndex = 0;
          break;
-        case "de":
+        case "en-US":
          this.cultureIndex = 1;
          break;
-        case "fr":
+        case "de":
          this.cultureIndex = 2;
          break;
-        case "ar":
+        case "fr":
          this.cultureIndex = 3;
          break;
-        case "zh":
+        case "ar":
          this.cultureIndex = 4;
          break;
        }
@@ -84,10 +83,10 @@
 
     List<Cultures> CultureList = new List<Cultures>
    {
+        new Cultures() { Text = "Spanish (es)", Code = "es" },
         new Cultures() { Text = "English (en-US)", Code = "en-US" },
         new Cultures() { Text = "German (de)", Code = "de" },
         new Cultures() { Text = "French (fr)", Code = "fr" },
         new Cultures() { Text = "Arabic (ar)", Code = "ar" },
-        new Cultures() { Text = "Chinese (zh)", Code = "zh" },
     };
 }
