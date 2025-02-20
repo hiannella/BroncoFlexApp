@@ -93,7 +93,7 @@ public partial class ApplicationDbContext : DbContext
         {
             entity.HasKey(e => e.Id).HasName("PK__Cobertur__3214EC07E898994B");
 
-            entity.Property(e => e.Cobertura1)
+            entity.Property(e => e.NombreCompleto)
                 .HasMaxLength(200)
                 .HasColumnName("Cobertura");
             entity.Property(e => e.Rnos)
@@ -292,10 +292,10 @@ public partial class ApplicationDbContext : DbContext
                 .HasMaxLength(29)
                 .IsUnicode(false);
 
-            entity.HasOne(d => d.IdCoberturaNavigation).WithMany(p => p.Pacientes)
-                .HasForeignKey(d => d.IdCobertura)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK_Paciente_Cobertura");
+            //entity.HasOne(d => d.IdCoberturaNavigation).WithMany(p => p.Pacientes)
+            //    .HasForeignKey(d => d.IdCobertura)
+            //    .OnDelete(DeleteBehavior.ClientSetNull)
+            //    .HasConstraintName("FK_Paciente_Cobertura");
         });
 
         modelBuilder.Entity<Pendiente>(entity =>

@@ -28,9 +28,9 @@ public partial class Paciente
 
     public string? NroAfiliado { get; set; }
 
-    public virtual ICollection<Ficha> Fichas { get; set; } = new List<Ficha>();
+    public virtual ICollection<Ficha> Fichas { get; set; } = [];
 
     public virtual Cobertura IdCoberturaNavigation { get; set; } = null!;
 
-    public virtual ICollection<Procedimiento> Procedimientos { get; set; } = new List<Procedimiento>();
+    public virtual ICollection<Procedimiento> Procedimientos { get; set; } = [];
 }

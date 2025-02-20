@@ -11,12 +11,11 @@ builder.Services.AddMemoryCache();
 //Add Syncfusion Blazor Components
 builder.Services.AddSyncfusionBlazor();
 //Configure Syncfusion localization options
-builder.Services.AddSingleton(typeof(ISyncfusionStringLocalizer), typeof(SyncfusionLocalizer));
-var supportedCultures = new[] { "es", "en-US", "de", "fr", "ar" };
+builder.Services.AddSingleton<ISyncfusionStringLocalizer, SyncfusionLocalizer>();
 var localizationOptions = new RequestLocalizationOptions()
-    .SetDefaultCulture(supportedCultures[0])
-    .AddSupportedCultures(supportedCultures)
-    .AddSupportedUICultures(supportedCultures);
+    .SetDefaultCulture("es")
+    .AddSupportedCultures("es")
+    .AddSupportedUICultures("es");
 //Register Syncfusion license https://help.syncfusion.com/common/essential-studio/licensing/how-to-generate
 Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("MzcwNjg0NkAzMjM4MmUzMDJlMzBDaTVBdDk2SGZSZnMvVnl0d1hnT1JEQnpNVjV0dThqNWlhT3NRWEFYVGhzPQ==");
 //Register Bold license
