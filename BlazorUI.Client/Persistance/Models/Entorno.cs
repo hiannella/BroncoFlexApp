@@ -6,5 +6,5 @@ public partial class Entorno
 
     public string Entorno1 { get; set; } = null!;
 
-    public virtual ICollection<Procedimiento> Procedimientos { get; set; } = new List<Procedimiento>();
+    public virtual ICollection<Procedimiento> Procedimientos { get; set; } = [];
 }

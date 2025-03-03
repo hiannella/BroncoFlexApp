@@ -14,17 +14,17 @@ public partial class Personal
 
     public int IdCargo { get; set; }
 
-    public virtual ICollection<Ficha> Fichas { get; set; } = new List<Ficha>();
+    //public virtual ICollection<Ficha> Fichas { get; set; } = new List<Ficha>();
 
     public virtual Cargo IdCargoNavigation { get; set; } = null!;
 
-    public virtual ICollection<Procedimiento> ProcedimientoIdAnestesiologoNavigations { get; set; } = new List<Procedimiento>();
+    //public virtual ICollection<Procedimiento> ProcedimientoIdAnestesiologoNavigations { get; set; } = new List<Procedimiento>();
 
-    public virtual ICollection<Procedimiento> ProcedimientoIdAsistenteNavigations { get; set; } = new List<Procedimiento>();
+    //public virtual ICollection<Procedimiento> ProcedimientoIdAsistenteNavigations { get; set; } = new List<Procedimiento>();
 
-    public virtual ICollection<Procedimiento> ProcedimientoIdAyudanteNavigations { get; set; } = new List<Procedimiento>();
+    //public virtual ICollection<Procedimiento> ProcedimientoIdAyudanteNavigations { get; set; } = new List<Procedimiento>();
 
-    public virtual ICollection<Procedimiento> ProcedimientoIdOperadorNavigations { get; set; } = new List<Procedimiento>();
+    //public virtual ICollection<Procedimiento> ProcedimientoIdOperadorNavigations { get; set; } = new List<Procedimiento>();
 
-    public virtual ICollection<Procedimiento> ProcedimientoIdPatologoNavigations { get; set; } = new List<Procedimiento>();
+    //public virtual ICollection<Procedimiento> ProcedimientoIdPatologoNavigations { get; set; } = new List<Procedimiento>();
 }

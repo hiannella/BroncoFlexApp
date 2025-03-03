@@ -197,7 +197,7 @@ public partial class ApplicationDbContext : DbContext
 
             entity.HasMany(d => d.IdPrecaucions).WithMany(p => p.IdFichas)
                 .UsingEntity<Dictionary<string, object>>(
-                    "RelFichasPrecaucione",
+                    "RelFichasPrecauciones",
                     r => r.HasOne<Precaucion>().WithMany()
                         .HasForeignKey("IdPrecaucion")
                         .OnDelete(DeleteBehavior.ClientSetNull)

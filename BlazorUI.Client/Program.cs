@@ -1,6 +1,9 @@
 ﻿using BlazorUI.Client.Components;
 using BlazorUI.Client.Components.Layout;
+using Bold.Licensing;
 using Syncfusion.Blazor;
+using Syncfusion.Licensing;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,10 +19,10 @@ var localizationOptions = new RequestLocalizationOptions()
     .SetDefaultCulture("es")
     .AddSupportedCultures("es")
     .AddSupportedUICultures("es");
-//Register Syncfusion license https://help.syncfusion.com/common/essential-studio/licensing/how-to-generate
-Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("MzcwNjg0NkAzMjM4MmUzMDJlMzBDaTVBdDk2SGZSZnMvVnl0d1hnT1JEQnpNVjV0dThqNWlhT3NRWEFYVGhzPQ==");
+//Register Syncfusion license
+SyncfusionLicenseProvider.RegisterLicense("MzcwNjg0NkAzMjM4MmUzMDJlMzBDaTVBdDk2SGZSZnMvVnl0d1hnT1JEQnpNVjV0dThqNWlhT3NRWEFYVGhzPQ==");
 //Register Bold license
-Bold.Licensing.BoldLicenseProvider.RegisterLicense("ua3Qt2jAX3gUpPzFwRRFHumBUb+LfkxpqJK7BNpXMTo=");
+BoldLicenseProvider.RegisterLicense("ua3Qt2jAX3gUpPzFwRRFHumBUb+LfkxpqJK7BNpXMTo=");
 
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
